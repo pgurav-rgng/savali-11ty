@@ -1,8 +1,9 @@
-require("dotenv").config();
 const axios = require("axios");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 exports.handler = async (event) => {
-  
   // Only allow POST requests
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
