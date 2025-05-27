@@ -1,0 +1,178 @@
+<script src="config.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>Simple Serverless Chatbot</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+      }
+
+      #chat-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      #chat-box {
+        height: 400px;
+        padding: 15px;
+        overflow-y: scroll;
+        border-bottom: 1px solid #eee;
+      }
+
+      .message {
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        border-radius: 5px;
+        max-width: 80%;
+        word-wrap: break-word;
+      }
+
+      .user-message {
+        background-color: #dcf8c6;
+        margin-left: auto;
+        text-align: right;
+      }
+
+      .bot-message {
+        background-color: #e6e6e6;
+        margin-right: auto;
+        text-align: left;
+      }
+
+      #input-container {
+        display: flex;
+        padding: 15px;
+        background-color: #f9f9f9;
+      }
+
+      #user-input {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-right: 10px;
+        font-size: 16px;
+      }
+
+      #send-button {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      #send-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="chat-container">
+      <div id="chat-box">
+        <div class="message bot-message">Hello! Ask me anything.</div>
+      </div>
+      <div id="input-container">
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <button id="send-button">Send</button>
+      </div>
+    </div>
+
+    <script>
+      const chatBox = document.getElementById("chat-box");
+      const userInput = document.getElementById("user-input");
+      const sendButton = document.getElementById("send-button");
+
+      // Add this array before your sendMessage function
+      const messages = [
+        {
+          role: "system",
+          content:
+            "You are a helpful assistant for a plants nursery. Your purpose is to answer questions only about plants, plant care, pots, fertilizers, gardening tools, and related nursery products. If a question is outside these topics, politely state that you can only answer questions related to the nursery's products and services.",
+        },
+      ];
+
+      async function sendMessage() {
+        const message = userInput.value.trim();
+        if (message === "") return;
+
+        // Add user message to chat UI
+        appendMessage(message, "user-message");
+        userInput.value = ""; // Clear input
+
+        // Add to message history
+        messages.push({ role: "user", content: message });
+
+        try {
+          // Call Netlify Function instead of OpenAI directly
+          const response = await fetch("/.netlify/functions/chat", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ messages }),
+          });
+
+          if (!response.ok) {
+            throw new Error(`Network error: ${response.status}`);
+          }
+
+          const data = await response.json();
+          const botResponse =
+            data.choices?.[0]?.message?.content ||
+            "Sorry, I couldn't process that. Please call us at ☎️ 91124 38007";
+
+          appendMessage(botResponse, "bot-message");
+          messages.push({ role: "assistant", content: botResponse });
+        } catch (error) {
+          console.error("Chat error:", error);
+          appendMessage(
+            "Our chat service is temporarily unavailable. " +
+              "Please call ☎️ 91124 38007 for immediate assistance.",
+            "bot-message"
+          );
+        } finally {
+          chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+        }
+      }
+      function appendMessage(text, type) {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message", type);
+
+        if (type === "bot-message") {
+          // Convert Markdown to HTML for bot messages
+          messageDiv.innerHTML = marked.parse(text);
+        } else {
+          // User messages are plain text
+          messageDiv.textContent = text;
+        }
+
+        chatBox.appendChild(messageDiv);
+      }
+      // Event Listeners
+      userInput.addEventListener("focus", () => {
+        document.getElementById("sample-question").style.display = "none";
+      });
+      sendButton.addEventListener("click", sendMessage);
+      userInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+          sendMessage();
+        }
+      });
+    </script>
+  </body>
+</html>

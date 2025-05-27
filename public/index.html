@@ -182,7 +182,7 @@
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Aglaonema</h3>
                         <p class="text-gray-600 text-sm mb-4">Beautiful colorful leaves that thrive in low light.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-primary-600">₹599</span>
+                            <span class="text-lg font-bold text-primary-600">₹450</span>
                             <button
                                 class="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                 Add to Cart
@@ -201,7 +201,7 @@
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Areca Palm</h3>
                         <p class="text-gray-600 text-sm mb-4">Tropical palm perfect for indoor spaces.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-primary-600">₹799</span>
+                            <span class="text-lg font-bold text-primary-600">₹400</span>
                             <button
                                 class="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                 Add to Cart
@@ -220,7 +220,7 @@
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Fan Palm</h3>
                         <p class="text-gray-600 text-sm mb-4">Elegant palm with distinctive fan-shaped leaves.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-primary-600">₹899</span>
+                            <span class="text-lg font-bold text-primary-600">₹400</span>
                             <button
                                 class="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                 Add to Cart
@@ -239,7 +239,7 @@
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Jade Plant</h3>
                         <p class="text-gray-600 text-sm mb-4">Lucky succulent with thick, glossy leaves.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-lg font-bold text-primary-600">₹499</span>
+                            <span class="text-lg font-bold text-primary-600">₹250</span>
                             <button
                                 class="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1 rounded text-sm transition duration-300">
                                 Add to Cart
@@ -347,34 +347,20 @@
         </div>
     </footer>
 <!-- Chatbot Section -->
+<!-- Chatbot Section -->
 <section class="py-12 bg-white">
     <div class="container mx-auto px-4 max-w-4xl">
       <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Plant Care Assistant</h2>
-      
       <div class="bg-green-50 rounded-xl p-6 shadow-md">
-        <!-- Sample question (disappears on interaction) -->
-        <div id="sample-question" class="mb-4">
-          <p class="text-gray-400 italic">Try asking: How do I care for a snake plant?</p>
-        </div>
-        
-        <!-- Chatbot container -->
-        <div class="border border-green-200 rounded-lg overflow-hidden">
-          <iframe src="chatbot.html" class="w-full h-[500px] border-0" id="nursery-chatbot"></iframe>
-        </div>
+        <!-- Use this EXACT iframe (since both files are in 'public') -->
+        <iframe src="chatbot.html" class="w-full h-[500px] border-0 rounded-lg"></iframe>
       </div>
     </div>
   </section>
-  
   <script>
-    // Only handle UI changes, no message passing
-    const iframe = document.getElementById('nursery-chatbot');
-    const sampleQuestion = document.getElementById('sample-question');
-    
-    // Hide sample question when iframe is clicked
-    iframe.addEventListener('load', () => {
-      iframe.contentWindow.document.addEventListener('click', () => {
-        sampleQuestion.style.display = 'none';
-      });
+    // Ensure the iframe loads correctly
+    document.querySelector('iframe').addEventListener('load', () => {
+      console.log('Chatbot loaded');
     });
   </script>
 </body>
