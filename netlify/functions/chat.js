@@ -2,10 +2,7 @@ require("dotenv").config();
 const axios = require("axios");
 
 exports.handler = async (event) => {
-  console.log("API Key:", process.env.OPENAI_API_KEY);
-  if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config();
-  }
+  
   // Only allow POST requests
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
