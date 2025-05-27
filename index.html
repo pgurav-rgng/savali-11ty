@@ -346,6 +346,36 @@
             </div>
         </div>
     </footer>
+<!-- Chatbot Section -->
+<section class="py-12 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Plant Care Assistant</h2>
+      
+      <div class="bg-green-50 rounded-xl p-6 shadow-md">
+        <!-- Sample question (disappears on interaction) -->
+        <div id="sample-question" class="mb-4">
+          <p class="text-gray-400 italic">Try asking: How do I care for a snake plant?</p>
+        </div>
+        
+        <!-- Chatbot container -->
+        <div class="border border-green-200 rounded-lg overflow-hidden">
+          <iframe src="chatbot.html" class="w-full h-[500px] border-0" id="nursery-chatbot"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    // Only handle UI changes, no message passing
+    const iframe = document.getElementById('nursery-chatbot');
+    const sampleQuestion = document.getElementById('sample-question');
+    
+    // Hide sample question when iframe is clicked
+    iframe.addEventListener('load', () => {
+      iframe.contentWindow.document.addEventListener('click', () => {
+        sampleQuestion.style.display = 'none';
+      });
+    });
+  </script>
 </body>
-
 </html>
