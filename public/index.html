@@ -49,14 +49,23 @@
                 font-family: '"Dancing Script"', cursive;
             }
         }
-            /* Add this new CSS rule outside of @layer */
-        .video-container {
+            .safe-image {
+            max-height: -webkit-fill-available; /* Android compatibility */
+            max-height: -moz-available;
+        }
+            .product-image-container img {
+            max-height: 12rem; /* h-48 equivalent */
+            object-fit: contain;
+            width: auto;
+            margin: 0 auto; /* Centers the image */
+        }
+            .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
         }
-        .video-container video {
+            .video-container video {
             position: absolute;
             top: 0;
             left: 0;
