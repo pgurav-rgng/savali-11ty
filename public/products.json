@@ -1,0 +1,186 @@
+[
+  {
+    "id": 1,
+    "name": "Aglaonema",
+    "description": "Beautiful colorful leaves that thrive in low light.",
+    "price": 450,
+    "image": "agalonema.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 2,
+    "name": "Areca Palm",
+    "description": "Tropical palm perfect for indoor spaces.",
+    "price": 400,
+    "image": "arecapalm.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 3,
+    "name": "Fan Palm",
+    "description": "Elegant palm with distinctive fan-shaped leaves.",
+    "price": 400,
+    "image": "fanpalm.jpg",
+    "category": "outdoor"
+  },
+  {
+    "id": 4,
+    "name": "Jade Plant",
+    "description": "Lucky succulent with thick, glossy leaves.",
+    "price": 250,
+    "image": "Jade.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 5,
+    "name": "Snake Plant",
+    "description": "Hardy air-purifying plant for any space.",
+    "price": 399,
+    "image": "snakeplant.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 7,
+    "name": "Money Plant",
+    "description": "Popular plant believed to bring good luck and prosperity.",
+    "price": 300,
+    "image": "money plant.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 9,
+    "name": "Birds Nest",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 550,
+    "image": "Birds nest.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 10,
+    "name": "Lotus Pink",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 600,
+    "image": "Lotus pink.jpg",
+    "category": "water plants"
+  },
+  {
+    "id": 11,
+    "name": "Petra Croton",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 650,
+    "image": "Petra croton.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 12,
+    "name": "Bleeding Heart",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 750,
+    "image": "bleeding heart.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 13,
+    "name": "Christmas Tree",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 900,
+    "image": "christmas tree.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 14,
+    "name": "Croton",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 950,
+    "image": "croton.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 15,
+    "name": "Dollar Plant Small",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 1000,
+    "image": "dollar plant small.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 16,
+    "name": "Draceana",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 1050,
+    "image": "draceana.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 17,
+    "name": "Dwarfumbrella",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 300,
+    "image": "dwarfUmbrella.jpg",
+    "category": "indoor"
+  },
+  {
+    "id": 18,
+    "name": "Landscaping1",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 300,
+    "image": "landscaping1.jpg",
+    "category": "landscaping"
+  },
+  {
+    "id": 19,
+    "name": "Landscaping2",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 350,
+    "image": "landscaping2.jpg",
+    "category": "landscaping"
+  },
+  {
+    "id": 20,
+    "name": "Landscaping3",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 400,
+    "image": "landscaping3.jpg",
+    "category": "landscaping"
+  },
+  {
+    "id": 21,
+    "name": "Landscaping4",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 450,
+    "image": "landscaping4.jpg",
+    "category": "landscaping"
+  },
+  {
+    "id": 22,
+    "name": "Landscaping5",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 500,
+    "image": "landscaping5.jpg",
+    "category": "landscaping"
+  },
+  {
+    "id": 23,
+    "name": "Bday Gifts 1",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 700,
+    "image": "bday gifts 1.jpg",
+    "category": "gifts"
+  },
+  {
+    "id": 24,
+    "name": "Bulkgifts",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 800,
+    "image": "bulkgifts.jpg",
+    "category": "gifts"
+  },
+  {
+    "id": 25,
+    "name": "Bulkgifts2",
+    "description": "A beautiful plant to enhance your space.",
+    "price": 850,
+    "image": "bulkgifts2.jpg",
+    "category": "gifts"
+  }
+]
