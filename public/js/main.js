@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           const productCard = `
-            <div class="p-4 flex flex-col flex-grow">
-            <div class="h-48 overflow-hidden flex items-center justify-center bg-gray-100">
+            <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <div class="h-48 overflow-hidden flex items-center justify-center bg-gray-100">
                     <img 
                         src="images/${product.image}" 
                         alt="${product.name}" 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="p-4">
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">${product.name}</h3>
                     ${potIncludedHtml} 
-                    <p class="text-gray-600 text-sm flex-grow">${product.description}</p>
+                    <p class="text-gray-600 text-sm mb-4">${product.description}</p>
                     <div class="flex justify-between items-center">
                         <span class="text-lg font-bold text-primary-600">₹${product.price}</span>
                         <button class="bg-primary-500 hover:bg-primary-600 text-white px-3 py-1 rounded text-sm transition duration-300">
