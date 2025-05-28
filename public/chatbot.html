@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,18 +76,27 @@
   <body>
     <div id="chat-container">
       <div id="chat-box">
-        <div class="message bot-message" style="margin: 0">
-          Hello! Ask me anything.
+        <div class="message bot-message">
+          <strong>Sample Question:</strong> How frequently should the plants be
+          watered?<br /><br />
+          <strong>Answer:</strong> The frequency of watering plants can vary
+          depending on factors such as the type of plant, the size of the pot,
+          the temperature, and the humidity levels. A general guideline is to
+          water when the top inch of soil feels dry to the touch. It's best to
+          water thoroughly and allow excess water to drain out of the pot to
+          prevent waterlogging. It's important to avoid overwatering, as this
+          can lead to root rot. Observing your plants regularly will help you
+          determine their specific watering needs.
         </div>
       </div>
       <div id="input-container">
-        <input type="text" id="user-input" placeholder="Type your message..." />
+        <input type="text" id="user-input" placeholder="Type your question..." />
         <button id="send-button">Send</button>
       </div>
     </div>
 
     <script>
-      // Feature flag - Set to false to disable 
+      // Feature flag - Set to false to disable
       const CHATBOT_ENABLED = true; //Change to 'true' when ready
       const chatBox = document.getElementById("chat-box");
       const userInput = document.getElementById("user-input");
