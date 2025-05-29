@@ -1,42 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const productListing = document.getElementById("product-listing");
-  // Load videos
-  fetch("products.json")
-    .then((response) => {
-      // Check if the network request was successful
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((products) => {
-      // CHANGE THIS LINE: Use 'product-listing' instead of 'products-container'
-      const productListing = document.getElementById("product-listing");
+    const productListing = document.getElementById("product-listing");
+    // Load videos
+    fetch("products.json")
+      .then((response) => {
+        // Check if the network request was successful
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((products) => {
+        // CHANGE THIS LINE: Use 'product-listing' instead of 'products-container'
+        const productListing = document.getElementById("product-listing");
 
-      if (!productListing) {
-        console.error(
-          "Error: HTML element with ID 'product-listing' not found."
-        );
-        return;
-      }
-
-      productListing.innerHTML = ""; // Clear previous content if any, before adding new products
-
-      products.forEach((product) => {
-        let potIncludedHtml = "";
-        if (product && product["with-pot"]) {
-          potIncludedHtml =
-            '<p class="text-green-600 text-sm font-semibold mt-1">Pot included</p>';
+        if (!productListing) {
+          console.error(
+            "Error: HTML element with ID 'product-listing' not found."
+          );
+          return;
         }
 
-        const productCard = `
+        productListing.innerHTML = ""; // Clear previous content if any, before adding new products
+
+        products.forEach((product) => {
+          let potIncludedHtml = "";
+          if (product && product["with-pot"]) {
+            potIncludedHtml =
+              '<p class="text-green-600 text-sm font-semibold mt-1">Pot included</p>';
+          }
+
+          const productCard = `
           <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 flex flex-col h-full min-h-[400px]">
               <div class="h-48 overflow-hidden flex items-center justify-center bg-gray-100">
-                <img 
-                    src="images/${product.image}" 
-                    alt="${product.name}" 
-                    class="max-h-full max-w-full object-cover safe-image" 
-                >
+                  <img 
+                      src="images/${product.image}" 
+                      alt="${product.name}" 
+                      class="max-h-full max-w-full object-cover safe-image" 
+                  >
               </div>
               <div class="p-4 flex flex-col flex-grow">
                   <h3 class="text-xl font-semibold text-gray-800 mb-2">${product.name}</h3>
@@ -53,32 +53,32 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
           </div>
       `;
-        productListing.innerHTML += productCard;
+          productListing.innerHTML += productCard;
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        // CHANGE THIS LINE: Use 'product-listing' instead of 'products-container'
+        const productListing = document.getElementById("product-listing");
+        if (productListing) {
+          productListing.innerHTML =
+            '<p class="text-center text-red-500">Failed to load products. Please try again later.</p>';
+        } else {
+          document.body.innerHTML +=
+            '<p class="text-center text-red-500">Failed to load products and display area not found. Please check console for errors.</p>';
+        }
       });
-    })
-    .catch((error) => {
-      console.error("Error fetching products:", error);
-      // CHANGE THIS LINE: Use 'product-listing' instead of 'products-container'
-      const productListing = document.getElementById("product-listing");
-      if (productListing) {
-        productListing.innerHTML =
-          '<p class="text-center text-red-500">Failed to load products. Please try again later.</p>';
-      } else {
-        document.body.innerHTML +=
-          '<p class="text-center text-red-500">Failed to load products and display area not found. Please check console for errors.</p>';
-      }
-    });
 });
 
 // Load videos
 fetch("videos.json")
-  .then((response) => response.json())
-  .then((videos) => {
-    const container = document.getElementById("video-container");
+    .then((response) => response.json())
+    .then((videos) => {
+        const container = document.getElementById("video-container");
 
-    if (container) {
-      videos.forEach((video) => {
-        const videoElement = `
+        if (container) {
+            videos.forEach((video) => {
+                const videoElement = `
                     <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                         <div class="relative pb-[56.25%] h-0 overflow-hidden">
                             <video class="absolute top-0 left-0 w-full h-full" controls poster="${video.thumbnail}">
@@ -91,10 +91,10 @@ fetch("videos.json")
                         </div>
                     </div>
                 `;
-        container.innerHTML += videoElement;
-      });
-      // Pause all videos after they are added to the page
-      document.querySelectorAll("video").forEach((vid) => vid.pause());
-    }
-  })
-  .catch((error) => console.error("Error loading videos:", error));
+                container.innerHTML += videoElement;
+            });
+            // Pause all videos after they are added to the page
+            document.querySelectorAll("video").forEach((vid) => vid.pause());
+        }
+    })
+    .catch((error) => console.error("Error loading videos:", error));
