@@ -115,7 +115,25 @@ function renderProduct(product) {
   `;
   container.appendChild(card);
 }
-
+function showCartNotification(message) {
+  // You can implement a more complex notification (e.g., a fading pop-up)
+  // For now, a simple console log or alert can be used.
+  console.log(message);
+  // Example of a basic notification (uncomment and style with CSS if needed)
+  /*
+  const notificationDiv = document.createElement('div');
+  notificationDiv.className = 'fixed bottom-28 right-4 bg-green-500 text-white p-3 rounded-lg shadow-lg cart-notification';
+  notificationDiv.textContent = message;
+  document.body.appendChild(notificationDiv);
+  setTimeout(() => {
+      notificationDiv.classList.add('show');
+  }, 10); // Small delay for animation
+  setTimeout(() => {
+      notificationDiv.classList.remove('show');
+      notificationDiv.addEventListener('transitionend', () => notificationDiv.remove());
+  }, 3000); // Hide after 3 seconds
+  */
+}
 
 function addToCart(product) {
   // Check if product already exists in cart
