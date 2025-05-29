@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const productListing = document.getElementById("product-listing");
-    // Load videos
+    // Load images
     fetch("products.json")
       .then((response) => {
         // Check if the network request was successful
