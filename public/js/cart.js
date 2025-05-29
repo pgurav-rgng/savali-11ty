@@ -98,17 +98,18 @@ function removeItem(index) {
 function updateCartIconCount() {
   let totalItems = 0;
   cart.forEach((item) => {
-    totalItems += parseInt(item.qty); // Ensure qty is parsed as integer here too
+    totalItems += parseInt(item.qty);
   });
 
-  if (cartItemCountDisplay) {
+  // Target ALL elements with the ID
+  document.querySelectorAll("#cart-item-count").forEach((counter) => {
     if (totalItems > 0) {
-      cartItemCountDisplay.textContent = totalItems;
-      cartItemCountDisplay.classList.remove("hidden");
+      counter.textContent = totalItems;
+      counter.classList.remove("hidden");
     } else {
-      cartItemCountDisplay.classList.add("hidden");
+      counter.classList.add("hidden");
     }
-  }
+  });
 }
 
 updateCartDisplay();
