@@ -32,12 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const productCard = `
           <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 flex flex-col h-full min-h-[400px]">
               <div class="h-48 overflow-hidden flex items-center justify-center bg-gray-100">
-                  <img 
-                      src="images/${product.image}" 
-                      alt="${product.name}" 
-                      class="max-h-full max-w-full object-cover safe-image" 
-                      loading="lazy" 
-                  >
+                <img 
+                    src="images/${product.image}" 
+                    alt="${product.name}" 
+                    class="max-h-full max-w-full object-cover safe-image" 
+                >
               </div>
               <div class="p-4 flex flex-col flex-grow">
                   <h3 class="text-xl font-semibold text-gray-800 mb-2">${product.name}</h3>
@@ -82,7 +81,7 @@ fetch("videos.json")
         const videoElement = `
                     <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                         <div class="relative pb-[56.25%] h-0 overflow-hidden">
-                            <video class="absolute top-0 left-0 w-full h-full" controls poster="${video.thumbnail}" loading="lazy">
+                            <video class="absolute top-0 left-0 w-full h-full" controls poster="${video.thumbnail}">
                                 <source src="videos/${video.filename}" type="video/mp4">
                             </video>
                         </div>
