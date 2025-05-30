@@ -144,7 +144,15 @@ function showCartNotification(message) {
   }, 3000); // Hide after 3 seconds
   */
 }
+function showToast(message = "Item added to cart!") {
+  const toast = document.getElementById("cart-toast");
+  toast.textContent = message;
+  toast.classList.remove("hidden");
 
+  setTimeout(() => {
+    toast.classList.add("hidden");
+  }, 1500); // disappears after 1.5s
+}
 function addToCart(product) {
   // Check if product already exists in cart
   const existingItem = cart.find((item) => item.id === product.id);
@@ -163,4 +171,6 @@ function addToCart(product) {
 
   // Update the cart icon count
   updateCartIconCount();
+
+  showToast("Item added to cart!");
 }

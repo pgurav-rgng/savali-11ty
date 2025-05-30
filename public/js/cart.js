@@ -102,6 +102,8 @@ function updateCartIconCount() {
     0
   );
 
+
+  
   // Your perfect existing logic (now handles multiple counters)
   document.querySelectorAll("#cart-item-count").forEach((counter) => {
     if (totalItems > 0) {

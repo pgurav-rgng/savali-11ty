@@ -83,6 +83,11 @@
                 transform: translateY(0);
                 opacity: 1;
             }
+            .cart-toast.show {
+                opacity: 1;
+                transform: translateY(0) translateX(-50%);
+            }
+
         }
     </style>
 </head>
@@ -335,6 +340,10 @@
       </svg>
       <span id="cart-item-count" class="absolute -top-1 -right-1 bg-primary-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
     </a>
+  </div>
+  <div id="cart-toast"
+    class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg shadow-lg text-sm z-50 hidden">
+    Item added to cart!
   </div>
 </body>
 </html>
