@@ -37,10 +37,7 @@ function updateCartDisplay() {
 
     itemDiv.innerHTML = `
       <div class="flex items-start">
-        <span class="text-xl font-bold text-gray-500 mr-4 flex-shrink-0">${
-          index + 1
-        }.</span>
-        <div class="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 mr-0 sm:mr-6 mb-4 sm:mb-0 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
+        <div class="w-48 h-48 sm:w-32 sm:h-32 flex-shrink-0 mr-0 sm:mr-6 mb-4 sm:mb-0 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
           <img src="images/${item.image}" alt="${
       item.name
     }" class="max-w-full max-h-full object-contain">
