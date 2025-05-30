@@ -1,15 +1,6 @@
 [
   {
     "id": 1,
-    "name": "Aglaonema",
-    "with-pot": true,
-    "description": "A beautiful and easy-to-care-for Aglaonema plant, known for its striking variegated leaves.",
-    "price": 450,
-    "image": "agalonema.webp",
-    "category": "indoor"
-  },
-  {
-    "id": 2,
     "name": "Areca Palm",
     "with-pot": true,
     "description": "Elegant Areca Palm, a tropical plant that adds a touch of greenery to any space.",
@@ -18,16 +9,7 @@
     "category": "indoor"
   },
   {
-    "id": 3,
-    "name": "Fan Palm",
-    "with-pot": true,
-    "description": "Stately Fan Palm with large, fan-shaped leaves for tropical appeal.",
-    "price": 400,
-    "image": "fanpalm.webp",
-    "category": "outdoor"
-  },
-  {
-    "id": 4,
+    "id": 2,
     "name": "Jade Plant",
     "with-pot": false,
     "description": "Classic Jade plant, a succulent representing growth and renewal.",
@@ -36,7 +18,7 @@
     "category": "indoor"
   },
   {
-    "id": 5,
+    "id": 3,
     "name": "Snake Plant",
     "with-pot": true,
     "description": "Hardy Snake Plant, excellent for air purification and low maintenance.",
@@ -45,7 +27,7 @@
     "category": "indoor"
   },
   {
-    "id": 6,
+    "id": 4,
     "name": "Money Plant",
     "with-pot": true,
     "description": "Popular plant believed to bring good luck and prosperity.",
@@ -54,7 +36,7 @@
     "category": "indoor"
   },
   {
-    "id": 7,
+    "id": 5,
     "name": "Birds Nest",
     "with-pot": true,
     "description": "Unique Bird's Nest fern with wavy, ripple-edged fronds resembling a nest.",
@@ -63,7 +45,7 @@
     "category": "indoor"
   },
   {
-    "id": 8,
+    "id": 6,
     "name": "Lotus Pink",
     "with-pot": true,
     "description": "Stunning pink Lotus flower, symbolizing purity and enlightenment.",
@@ -72,16 +54,7 @@
     "category": "water plants"
   },
   {
-    "id": 9,
-    "name": "Petra Croton",
-    "with-pot": false,
-    "description": "Petra Croton variety with bold, colorful foliage patterns.",
-    "price": 650,
-    "image": "Petra croton.webp",
-    "category": "indoor"
-  },
-  {
-    "id": 10,
+    "id": 7,
     "name": "Bleeding Heart",
     "with-pot": true,
     "description": "Delicate Bleeding Heart plant with distinctive heart-shaped pink flowers.",
@@ -90,7 +63,7 @@
     "category": "indoor"
   },
   {
-    "id": 11,
+    "id": 8,
     "name": "Christmas Tree",
     "with-pot": false,
     "description": "Festive Christmas tree plant, ideal for holiday decorations.",
@@ -99,16 +72,7 @@
     "category": "indoor"
   },
   {
-    "id": 12,
-    "name": "Croton",
-    "with-pot": true,
-    "description": "Vibrant Croton plant with multicolored, leathery leaves.",
-    "price": 950,
-    "image": "croton.webp",
-    "category": "indoor"
-  },
-  {
-    "id": 13,
+    "id": 9,
     "name": "Dollar Plant Small",
     "with-pot": true,
     "description": "Small Dollar Plant, symbolizing wealth and financial prosperity.",
@@ -117,7 +81,7 @@
     "category": "indoor"
   },
   {
-    "id": 14,
+    "id": 10,
     "name": "Draceana",
     "with-pot": false,
     "description": "Graceful Dracaena plant, known for its air-purifying qualities.",
@@ -126,16 +90,7 @@
     "category": "indoor"
   },
   {
-    "id": 15,
-    "name": "Dwarfumbrella",
-    "with-pot": true,
-    "description": "Charming Dwarf Umbrella plant with small, umbrella-like leaves.",
-    "price": 300,
-    "image": "dwarfUmbrella.webp",
-    "category": "indoor"
-  },
-  {
-    "id": 16,
+    "id": 11,
     "name": "Heliconia",
     "with-pot": false,
     "description": "Exotic Heliconia plant with colorful, lobster-claw shaped bracts.",
@@ -144,7 +99,7 @@
     "category": "outdoor"
   },
   {
-    "id": 17,
+    "id": 12,
     "name": "Jade in Brown Pot",
     "with-pot": true,
     "description": "Jade plant in a brown pot, symbolizing good luck and friendship.",
@@ -153,7 +108,7 @@
     "category": "indoor"
   },
   {
-    "id": 18,
+    "id": 13,
     "name": "Spider Plant",
     "with-pot": true,
     "description": "Spider Plant with arching leaves and baby plantlets, great for hanging baskets.",
@@ -162,7 +117,7 @@
     "category": "indoor"
   },
   {
-    "id": 19,
+    "id": 14,
     "name": "Waterlilies",
     "with-pot": true,
     "description": "Beautiful Water Lilies floating gracefully on water surfaces.",
@@ -171,7 +126,7 @@
     "category": "water plants"
   },
   {
-    "id": 20,
+    "id": 15,
     "name": "White Mussaenda",
     "with-pot": false,
     "description": "Exquisite White Mussaenda with delicate white bracts and yellow flowers.",
@@ -180,7 +135,7 @@
     "category": "outdoor"
   },
   {
-    "id": 21,
+    "id": 16,
     "name": "Goldstar",
     "with-pot": false,
     "description": "Golden Star plant featuring bright star-shaped foliage.",
@@ -189,7 +144,7 @@
     "category": "indoor"
   },
   {
-    "id": 22,
+    "id": 17,
     "name": "Passion Flower",
     "with-pot": true,
     "description": "Exotic Passion Flower with intricate, colorful blooms and spiritual significance.",
@@ -198,7 +153,7 @@
     "category": "outdoor"
   },
   {
-    "id": 23,
+    "id": 18,
     "name": "Jaswand",
     "with-pot": false,
     "description": "Vibrant Jaswand (Hibiscus) flower with large, showy blossoms.",
@@ -207,7 +162,7 @@
     "category": "outdoor"
   },
   {
-    "id": 24,
+    "id": 19,
     "name": "Ghanti Jaswand",
     "with-pot": true,
     "description": "Bell-shaped Jaswand variety with unique hanging flowers.",
@@ -216,7 +171,7 @@
     "category": "outdoor"
   },
   {
-    "id": 25,
+    "id": 20,
     "name": "Heliconia 2",
     "with-pot": false,
     "description": "Another variety of the exotic Heliconia plant with striking floral bracts.",
@@ -225,7 +180,7 @@
     "category": "outdoor"
   },
   {
-    "id": 26,
+    "id": 21,
     "name": "Areca Palm (Alternate)",
     "with-pot": true,
     "description": "Another variety of Areca Palm with lush, feathery fronds.",
@@ -234,7 +189,7 @@
     "category": "indoor"
   },
   {
-    "id": 27,
+    "id": 22,
     "name": "Bday Gifts 1",
     "with-pot": false,
     "description": "Thoughtful birthday gift arrangement featuring plants and flowers.",
@@ -243,7 +198,7 @@
     "category": "gifts"
   },
   {
-    "id": 28,
+    "id": 23,
     "name": "Bulkgifts",
     "with-pot": false,
     "description": "Collection of plants arranged as bulk gifts for corporate or special occasions.",
@@ -252,7 +207,7 @@
     "category": "gifts"
   },
   {
-    "id": 29,
+    "id": 24,
     "name": "Bulkgifts2",
     "with-pot": false,
     "description": "Another set of bulk gift arrangements perfect for gifting in quantity.",
@@ -261,7 +216,7 @@
     "category": "gifts"
   },
   {
-    "id": 30,
+    "id": 25,
     "name": "Giftoptions1",
     "with-pot": false,
     "description": "Attractive plant gift options for various occasions.",
@@ -270,7 +225,7 @@
     "category": "gifts"
   },
   {
-    "id": 31,
+    "id": 26,
     "name": "Giftoptions2",
     "with-pot": false,
     "description": "More delightful plant gift choices for different recipients.",
@@ -279,7 +234,7 @@
     "category": "gifts"
   },
   {
-    "id": 32,
+    "id": 27,
     "name": "Gifts3",
     "with-pot": false,
     "description": "corporate gifts.",
@@ -288,7 +243,7 @@
     "category": "gifts"
   },
   {
-    "id": 33,
+    "id": 28,
     "name": "Landscaping1",
     "with-pot": false,
     "description": "Beautiful landscape design featuring various plants and flowers.",
@@ -297,7 +252,7 @@
     "category": "landscaping"
   },
   {
-    "id": 34,
+    "id": 29,
     "name": "Landscaping2",
     "with-pot": false,
     "description": "Another stunning landscape arrangement for gardens or yards.",
@@ -306,7 +261,7 @@
     "category": "landscaping"
   },
   {
-    "id": 35,
+    "id": 30,
     "name": "Landscaping3",
     "with-pot": false,
     "description": "Creative landscape composition with diverse plant varieties.",
@@ -315,7 +270,7 @@
     "category": "landscaping"
   },
   {
-    "id": 36,
+    "id": 31,
     "name": "Landscaping4",
     "with-pot": false,
     "description": "Elegant landscape design incorporating natural elements.",
@@ -324,7 +279,7 @@
     "category": "landscaping"
   },
   {
-    "id": 37,
+    "id": 32,
     "name": "Landscaping5",
     "with-pot": false,
     "description": "Final landscape option showcasing harmonious plant combinations.",
@@ -333,12 +288,57 @@
     "category": "landscaping"
   },
   {
-    "id": 38,
+    "id": 33,
+    "name": "Fan Palm",
+    "with-pot": true,
+    "description": "Stately Fan Palm with large, fan-shaped leaves for tropical appeal.",
+    "price": 400,
+    "image": "fanpalm.webp",
+    "category": "outdoor"
+  },
+  {
+    "id": 34,
     "name": "Heliconia 2",
     "with-pot": false,
     "description": "Additional variety of the tropical Heliconia plant.",
     "price": 499,
     "image": "heliconia2.webp",
     "category": "outdoor"
+  },
+  {
+    "id": 35,
+    "name": "Petra Croton",
+    "with-pot": false,
+    "description": "Petra Croton variety with bold, colorful foliage patterns.",
+    "price": 650,
+    "image": "Petra croton.webp",
+    "category": "indoor"
+  },
+  {
+    "id": 36,
+    "name": "Croton",
+    "with-pot": true,
+    "description": "Vibrant Croton plant with multicolored, leathery leaves.",
+    "price": 950,
+    "image": "croton.webp",
+    "category": "indoor"
+  },
+  {
+    "id": 37,
+    "name": "Dwarfumbrella",
+    "with-pot": true,
+    "description": "Charming Dwarf Umbrella plant with small, umbrella-like leaves.",
+    "price": 300,
+    "image": "dwarfUmbrella.webp",
+    "category": "indoor"
+  },
+  {
+    "id": 38,
+    "name": "Aglaonema",
+    "with-pot": true,
+    "description": "A beautiful and easy-to-care-for Aglaonema plant, known for its striking variegated leaves.",
+    "price": 450,
+    "image": "agalonema.webp",
+    "category": "indoor"
   }
 ]
