@@ -29,22 +29,31 @@ document.addEventListener("DOMContentLoaded", () => {
         const productCard = `
               <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 flex flex-col h-full min-h-[400px]">
                   <div class="h-48 overflow-hidden flex items-center justify-center bg-gray-100">
-                  <img 
+                  <picture>
+                    <source srcset="jpgcompressed/${product.image.replace(".webp",".jpg")}" type="image/jpeg">
+                    <img 
                       src="images/${product.image}" 
                       alt="${product.name}" 
-                      class="max-h-full max-w-full object-cover safe-image" 
                       loading="lazy" 
-                  >
+                      class="object-contain max-h-48 mx-auto"
+                    >
+                  </picture>
                   </div>
                   <div class="p-4 flex flex-col flex-grow">
-                      <h3 class="text-xl font-semibold text-gray-800 mb-2">${product.name}</h3>
+                      <h3 class="text-xl font-semibold text-gray-800 mb-2">${
+                        product.name
+                      }</h3>
                       ${potIncludedHtml} 
                       <p class="text-gray-600 text-sm flex-grow"> 
                           ${product.description}
                       </p>
                       <div class="flex justify-between items-center mt-auto">
-                          <span class="text-lg font-bold text-primary-600">₹${product.price}</span>
-                          <button class="add-to-cart bg-primary-500 hover:bg-primary-600 text-white px-3 py-1 rounded text-sm transition duration-300" data-id="${product.id}">
+                          <span class="text-lg font-bold text-primary-600">₹${
+                            product.price
+                          }</span>
+                          <button class="add-to-cart bg-primary-500 hover:bg-primary-600 text-white px-3 py-1 rounded text-sm transition duration-300" data-id="${
+                            product.id
+                          }">
                           Add to Cart
                           </button>
                       </div>
