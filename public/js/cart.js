@@ -6,7 +6,7 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 updateCartIconCount();
 
 function updateCartDisplay() {
-  cartContainer.innerHTML = "";
+  cartContainer.innerHTML;
   let overallTotal = 0;
 
   if (cart.length === 0) {
