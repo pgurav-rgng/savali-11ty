@@ -96,12 +96,16 @@ function removeItem(index) {
 }
 
 function updateCartIconCount() {
-  let totalItems = 0;
-  cart.forEach((item) => {
-    totalItems += parseInt(item.qty);
-  });
+  // 1. First ensure cart is fresh from localStorage (Android sometimes needs this)
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Target ALL elements with the ID
+  // 2. Safer quantity parsing with fallback
+  let totalItems = cart.reduce(
+    (sum, item) => sum + (parseInt(item.qty) || 1),
+    0
+  );
+
+  // Your perfect existing logic (now handles multiple counters)
   document.querySelectorAll("#cart-item-count").forEach((counter) => {
     if (totalItems > 0) {
       counter.textContent = totalItems;

@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
               `;
         productListing.innerHTML += productCard;
+        updateCartIconCount();
       });
 
       // Add event listeners to all "Add to Cart" buttons
