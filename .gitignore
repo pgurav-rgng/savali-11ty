@@ -1,37 +1,52 @@
-# Local Netlify
+### Local Netlify ###
 .netlify/
 .netlify/functions/
 .netlify/functions-src/
+.netlify/functions/**/node_modules/  # Explicitly ignore Netlify function deps
 
-# Environment
-.env
+### Environment ###
+.env*
+!.env.example  # Keep example files
 .env.local
 .env.development
 .env.production
 
-# Dependencies
+### Dependencies ###
 node_modules/
-**/.local-chromium/  # Blocks puppeteer's chromium binaries
+**/.local-chromium/
 **/chromedriver*
 **/geckodriver*
+**/.cache/  # Catch all cache dirs (not just root)
 
-# Build outputs
-.cache/
+### Build Outputs ###
 dist/
 build/
 .next/
 out/
+*.min.js
+*.min.css
 
-# System files
+### System Files ###
 .DS_Store
 Thumbs.db
+*.tmp
+*.bak
 
-# IDE
+### IDE ###
 .idea/
 .vscode/
 *.swp
 *.swo
+*.code-workspace
 
-# Testing
+### Testing ###
 coverage/
-*.log404: Not Foundnetlify.toml
+*.log
+junit.xml
+test-results/
+
+### Special Cases ###
+# Explicitly protect these from accidental cleaning
+!products.json
+!config/
+!assets/
