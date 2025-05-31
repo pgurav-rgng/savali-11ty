@@ -94,26 +94,21 @@ function removeItem(index) {
 }
 
 function updateCartIconCount() {
-  // 1. First ensure cart is fresh from localStorage (Android sometimes needs this)
-  cart = JSON.parse(localStorage.getItem("cart")) || [];
+    // Refresh cart from localStorage
+    cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // 2. Safer quantity parsing with fallback
-  let totalItems = cart.reduce(
-    (sum, item) => sum + (parseInt(item.qty) || 1),
-    0
-  );
+    // Calculate total items
+    let totalItems = cart.reduce((sum, item) => sum + (parseInt(item.qty) || 1), 0);
 
-
-  
-  // Your perfect existing logic (now handles multiple counters)
-  document.querySelectorAll("#cart-item-count").forEach((counter) => {
-    if (totalItems > 0) {
-      counter.textContent = totalItems;
-      counter.classList.remove("hidden");
-    } else {
-      counter.classList.add("hidden");
-    }
-  });
+    // Update all cart counters (desktop and mobile)
+    document.querySelectorAll("#cart-item-count, #mobile-cart-item-count").forEach((counter) => {
+        if (totalItems > 0) {
+            counter.textContent = totalItems;
+            counter.classList.remove("hidden");
+        } else {
+            counter.classList.add("hidden");
+        }
+    });
 }
 document.addEventListener("DOMContentLoaded", function () {
   updateCartDisplay();
