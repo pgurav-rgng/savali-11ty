@@ -7,7 +7,7 @@ updateCartIconCount();
 
 function updateCartDisplay() {
   if (!cartContainer) return;
-  cartContainer.innerHTML= 'null';
+  cartContainer.innerHTML = "";
   let overallTotal = 0;
 
   if (cart.length === 0) {
@@ -20,17 +20,13 @@ function updateCartDisplay() {
   }
 
   cart.forEach((item, index) => {
-    // === FIX START ===
-    // Ensure price is a number before calculation
     const itemPrice = parseFloat(item.price.toString().replace(/[^\d.]/g, ""));
-
-    // Ensure quantity is a number as well (though less common for NaN in this scenario)
     const itemQty = parseInt(item.qty) || 1;
-
     const itemSubtotal = itemPrice * itemQty;
-    // === FIX END ===
-
     overallTotal += itemSubtotal;
+
+    const width = item.width || "";
+    const height = item.height || "";
 
     const itemDiv = document.createElement("div");
     itemDiv.className =
@@ -39,9 +35,13 @@ function updateCartDisplay() {
     itemDiv.innerHTML = `
       <div class="flex items-start">
         <div class="w-48 h-48 sm:w-32 sm:h-32 flex-shrink-0 mr-0 sm:mr-6 mb-4 sm:mb-0 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
-          <img src="images/${item.image}" alt="${
-      item.name
-    }" class="max-w-full max-h-full object-contain">
+          <img 
+            src="images/${item.image}" 
+            alt="${item.name}" 
+            width="${width}" 
+            height="${height}" 
+            class="max-w-full max-h-full object-contain"
+          >
         </div>
       </div>
       <div class="flex-grow text-center sm:text-left ml-0 sm:ml-4">
@@ -71,7 +71,6 @@ function updateCartDisplay() {
     cartContainer.appendChild(itemDiv);
   });
 
-  // Check if overallTotal is NaN and set to 0.00 if it is (handles cases where all items might have NaN prices)
   totalDisplay.textContent = isNaN(overallTotal)
     ? "0.00"
     : overallTotal.toFixed(2);
@@ -94,24 +93,24 @@ function removeItem(index) {
 }
 
 function updateCartIconCount() {
-    // Refresh cart from localStorage
-    cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let totalItems = cart.reduce(
+    (sum, item) => sum + (parseInt(item.qty) || 1),
+    0
+  );
 
-    // Calculate total items
-    let totalItems = cart.reduce((sum, item) => sum + (parseInt(item.qty) || 1), 0);
-
-    // Update all cart counters (desktop and mobile)
-    document.querySelectorAll("#cart-item-count, #mobile-cart-item-count").forEach((counter) => {
-        if (totalItems > 0) {
-            counter.textContent = totalItems;
-            counter.classList.remove("hidden");
-        } else {
-            counter.classList.add("hidden");
-        }
+  document
+    .querySelectorAll("#cart-item-count, #mobile-cart-item-count")
+    .forEach((counter) => {
+      if (totalItems > 0) {
+        counter.textContent = totalItems;
+        counter.classList.remove("hidden");
+      } else {
+        counter.classList.add("hidden");
+      }
     });
 }
+
 document.addEventListener("DOMContentLoaded", function () {
   updateCartDisplay();
 });
-
-updateCartDisplay();

@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
           productImage = productImage.slice(0, -5) + ".jpg";
         }
 
+        const width = product.width || "";
+        const height = product.height || "";
+
         const productCard = `
           <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1 flex flex-col h-full min-h-[400px]">
             <div class="h-48 overflow-hidden flex items-center justify-center bg-gray-100">
@@ -39,15 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 <img 
                   src="images/${product.image}" 
                   alt="${product.name}" 
-                  loading="lazy" 
+                  loading="lazy"
+                  width="${width}"
+                  height="${height}"
                   class="object-contain max-h-48 mx-auto"
                 >
               </picture>
             </div>
             <div class="p-4 flex flex-col flex-grow">
               <h3 class="text-xl font-semibold text-gray-800 mb-2">${product.name}</h3>
-              ${potIncludedHtml} 
-              <p class="text-gray-600 text-sm flex-grow"> 
+              ${potIncludedHtml}
+              <p class="text-gray-600 text-sm flex-grow">
                 ${product.description}
               </p>
               <div class="flex justify-between items-center mt-auto">
@@ -59,12 +64,11 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           </div>
         `;
-                
+
         productListing.innerHTML += productCard;
         updateCartIconCount();
       });
 
-      // Add event listeners to all "Add to Cart" buttons
       document.querySelectorAll(".add-to-cart").forEach((button) => {
         button.addEventListener("click", function () {
           const productId = parseInt(this.dataset.id);
@@ -92,18 +96,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (container) {
         videos.forEach((video) => {
           const videoElement = `
-                      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                          <div class="relative pb-[56.25%] h-0 overflow-hidden">
-                              <video class="absolute top-0 left-0 w-full h-full" controls poster="${video.thumbnail}" loading="lazy">
-                                  <source src="videos/${video.filename}" type="video/mp4">
-                              </video>
-                          </div>
-                          <div class="p-4">
-                              <h3 class="text-xl font-semibold text-gray-800 mb-2">${video.title}</h3>
-                              <p class="text-gray-600">${video.description}</p>
-                          </div>
-                      </div>
-                  `;
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              <div class="relative pb-[56.25%] h-0 overflow-hidden">
+                <video class="absolute top-0 left-0 w-full h-full" controls poster="${video.thumbnail}" loading="lazy">
+                  <source src="videos/${video.filename}" type="video/mp4">
+                </video>
+              </div>
+              <div class="p-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">${video.title}</h3>
+                <p class="text-gray-600">${video.description}</p>
+              </div>
+            </div>
+          `;
           container.innerHTML += videoElement;
         });
         document.querySelectorAll("video").forEach((vid) => vid.pause());
@@ -125,25 +129,11 @@ function renderProduct(product) {
   `;
   container.appendChild(card);
 }
+
 function showCartNotification(message) {
-  // You can implement a more complex notification (e.g., a fading pop-up)
-  // For now, a simple console log or alert can be used.
   console.log(message);
-  // Example of a basic notification (uncomment and style with CSS if needed)
-  /*
-  const notificationDiv = document.createElement('div');
-  notificationDiv.className = 'fixed bottom-28 right-4 bg-green-500 text-white p-3 rounded-lg shadow-lg cart-notification';
-  notificationDiv.textContent = message;
-  document.body.appendChild(notificationDiv);
-  setTimeout(() => {
-      notificationDiv.classList.add('show');
-  }, 10); // Small delay for animation
-  setTimeout(() => {
-      notificationDiv.classList.remove('show');
-      notificationDiv.addEventListener('transitionend', () => notificationDiv.remove());
-  }, 3000); // Hide after 3 seconds
-  */
 }
+
 function showToast(message = "Item added to cart!") {
   const toast = document.getElementById("cart-toast");
   toast.textContent = message;
@@ -151,26 +141,28 @@ function showToast(message = "Item added to cart!") {
 
   setTimeout(() => {
     toast.classList.add("hidden");
-  }, 1500); // disappears after 1.5s
+  }, 1500);
 }
+
 function addToCart(product) {
-  // Check if product already exists in cart
   const existingItem = cart.find((item) => item.id === product.id);
 
   if (existingItem) {
     existingItem.qty += 1;
   } else {
     cart.push({
-      ...product,
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      "with-pot": product["with-pot"],
+      width: product.width || "",
+      height: product.height || "",
       qty: 1,
     });
   }
 
-  // Save to localStorage
   localStorage.setItem("cart", JSON.stringify(cart));
-
-  // Update the cart icon count
   updateCartIconCount();
-
   showToast("Item added to cart!");
 }
