@@ -2,3 +2,6 @@
 .netlify
 .env
 netlify/functions/node_modules/
+node_modules/dist/
+.cache/
+node_modules
