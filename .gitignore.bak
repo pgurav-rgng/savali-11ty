@@ -1,0 +1,37 @@
+# Local Netlify
+.netlify/
+.netlify/functions/
+.netlify/functions-src/
+
+# Environment
+.env
+.env.local
+.env.development
+.env.production
+
+# Dependencies
+node_modules/
+**/.local-chromium/  # Blocks puppeteer's chromium binaries
+**/chromedriver*
+**/geckodriver*
+
+# Build outputs
+.cache/
+dist/
+build/
+.next/
+out/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing
+coverage/
+*.log
