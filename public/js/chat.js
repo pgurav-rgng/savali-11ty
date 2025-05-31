@@ -1,4 +1,5 @@
-const axios = require("axios");
+// Removed: import axios from "axios";
+//const axios = require("axios");
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }

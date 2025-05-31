@@ -6,7 +6,8 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 updateCartIconCount();
 
 function updateCartDisplay() {
-  cartContainer.innerHTML;
+  if (!cartContainer) return;
+  cartContainer.innerHTML= 'null';
   let overallTotal = 0;
 
   if (cart.length === 0) {
@@ -114,5 +115,8 @@ function updateCartIconCount() {
     }
   });
 }
+document.addEventListener("DOMContentLoaded", function () {
+  updateCartDisplay();
+});
 
 updateCartDisplay();
