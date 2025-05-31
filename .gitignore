@@ -1,7 +1,37 @@
-# Local Netlify folder
-.netlify
+# Local Netlify
+.netlify/
+.netlify/functions/
+.netlify/functions-src/
+
+# Environment
 .env
-netlify/functions/node_modules/
-node_modules/dist/
+.env.local
+.env.development
+.env.production
+
+# Dependencies
+node_modules/
+**/.local-chromium/  # Blocks puppeteer's chromium binaries
+**/chromedriver*
+**/geckodriver*
+
+# Build outputs
 .cache/
-node_modules
+dist/
+build/
+.next/
+out/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing
+coverage/
+*.log404: Not Found
