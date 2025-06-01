@@ -1,6 +1,9 @@
 const cartContainer = document.getElementById("cart-items");
 const totalDisplay = document.getElementById("total-price");
 const cartItemCountDisplay = document.getElementById("cart-item-count");
+const checkoutBtn = document.getElementById("checkout-btn");
+const customerDetailsSection = document.getElementById("customer-details");
+
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 updateCartIconCount();
@@ -114,3 +117,110 @@ function updateCartIconCount() {
 document.addEventListener("DOMContentLoaded", function () {
   updateCartDisplay();
 });
+
+let isPlacingOrder = false;
+checkoutBtn.addEventListener("click", async function () {
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+  if (!isPlacingOrder) {
+    customerDetailsSection.classList.remove("hidden");
+    checkoutBtn.textContent = "Place Order";
+    isPlacingOrder = true;
+  } else {
+    checkoutBtn.disabled = true;
+    checkoutBtn.textContent = "Placing Order...";
+    await processCheckout();
+  }
+});
+
+// Ensure processCheckout() validates inputs
+async function processCheckout() {
+  const name = document.getElementById("name").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+  let address = document.getElementById("address").value.trim();
+
+  phone = phone.replace(/[^\d]/g, "");
+  if (phone.startsWith("0")) phone = phone.slice(1);
+
+  if (phone.length === 10) {
+    phone = "+91" + phone;
+  } else if (phone.length === 12 && phone.startsWith("91")) {
+    phone = "+" + phone;
+  }
+
+  if (!name || !/^\+91\d{10}$/.test(phone)) {
+    showToast("Please enter a valid 10-digit mobile number");
+
+    // Reset button state
+    checkoutBtn.disabled = false;
+    checkoutBtn.textContent = "Place Order";
+    isPlacingOrder = true; // Stay in order mode
+    return;
+  }
+
+  const orderData = {
+    customer: { name, phone, address },
+    items: cart.map((item) => ({
+      name: item.name,
+      id: item.id,
+      quantity: parseInt(item.qty) || 1,
+      price: parseFloat(item.price.toString().replace(/[^\d.]/g, "")),
+    })),
+    total: cart
+      .reduce((total, item) => {
+        const price = parseFloat(item.price.toString().replace(/[^\d.]/g, ""));
+        return total + price * (parseInt(item.qty) || 1);
+      }, 0)
+      .toFixed(2),
+  };
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+
+    const response = await fetch("/.netlify/functions/process-order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(orderData),
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeout);
+
+    if (!response.ok) {
+      const errorDetails = await response
+        .clone()
+        .json()
+        .catch(() => response.text());
+      throw new Error(`Server error: ${JSON.stringify(errorDetails)}`);
+    }
+
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartDisplay();
+    window.location.href = "thank-you.html";
+  } catch (error) {
+    showToast("Order failed. Please try again.");
+
+    // Reset button state
+    checkoutBtn.disabled = false;
+    checkoutBtn.textContent = "Place Order";
+    isPlacingOrder = true;
+  }
+}
+
+
+function showToast(message) {
+  const toast = document.createElement("div");
+  toast.textContent = message;
+  toast.className =
+    "fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-xl text-lg z-50";
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}
+
