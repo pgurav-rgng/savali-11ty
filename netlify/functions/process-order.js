@@ -1,5 +1,7 @@
 const axios = require("axios");
-
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 exports.handler = async (event) => {
   try {
     // 1. Validate environment variables
