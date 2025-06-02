@@ -6,7 +6,7 @@
     "description": "Elegant Areca Palm, a tropical plant that adds a touch of greenery to any space.",
     "price": 400,
     "image": "arecapalm.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Palms", "Air purifying"],
     "width": 980,
     "height": 1222
   },
@@ -17,7 +17,7 @@
     "description": "Classic Jade plant, a succulent representing growth and renewal.",
     "price": 250,
     "image": "jade.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Succulents", "Low maintenance", "Auspicious"],
     "width": 3072,
     "height": 4096
   },
@@ -28,7 +28,7 @@
     "description": "Hardy Snake Plant, excellent for air purification and low maintenance.",
     "price": 399,
     "image": "snakeplant.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Air purifying", "Low maintenance"],
     "width": 3072,
     "height": 4096
   },
@@ -39,7 +39,7 @@
     "description": "Popular plant believed to bring good luck and prosperity.",
     "price": 300,
     "image": "money_plant.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Auspicious", "Low maintenance"],
     "width": 620,
     "height": 980
   },
@@ -50,7 +50,7 @@
     "description": "Unique Bird's Nest fern with wavy, ripple-edged fronds resembling a nest.",
     "price": 550,
     "image": "birds_nest.webp",
-    "category": "indoor",
+    "category": ["Indoor"],
     "width": 1200,
     "height": 1600
   },
@@ -61,7 +61,7 @@
     "description": "Stunning pink Lotus flower, symbolizing purity and enlightenment.",
     "price": 600,
     "image": "lotus_pink.webp",
-    "category": "water plants",
+    "category": ["Water", "Flowering"],
     "width": 1200,
     "height": 1600
   },
@@ -72,7 +72,7 @@
     "description": "Delicate Bleeding Heart plant with distinctive heart-shaped pink flowers.",
     "price": 750,
     "image": "bleeding_heart.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Flowering"],
     "width": 1200,
     "height": 1600
   },
@@ -83,7 +83,7 @@
     "description": "Festive Christmas tree plant, ideal for holiday decorations.",
     "price": 900,
     "image": "christmas_tree.webp",
-    "category": "indoor",
+    "category": ["Seasonal/holiday"],
     "width": 1200,
     "height": 1600
   },
@@ -94,7 +94,7 @@
     "description": "Small Dollar Plant, symbolizing wealth and financial prosperity.",
     "price": 1000,
     "image": "dollar_plant_small.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Auspicious"],
     "width": 1200,
     "height": 1600
   },
@@ -105,7 +105,7 @@
     "description": "Graceful Dracaena plant, known for its air-purifying qualities.",
     "price": 1050,
     "image": "draceana.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Air purifying"],
     "width": 1200,
     "height": 1600
   },
@@ -116,7 +116,7 @@
     "description": "Exotic Heliconia plant with colorful, lobster-claw shaped bracts.",
     "price": 499,
     "image": "heliconia.webp",
-    "category": "outdoor",
+    "category": ["Outdoor", "Flowering"],
     "width": 1200,
     "height": 1600
   },
@@ -127,7 +127,7 @@
     "description": "Jade plant in a brown pot, symbolizing good luck and friendship.",
     "price": 499,
     "image": "jade_in_brown_pot.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Succulents", "Low maintenance", "Auspicious"],
     "width": 1200,
     "height": 1600
   },
@@ -138,7 +138,7 @@
     "description": "Spider Plant with arching leaves and baby plantlets, great for hanging baskets.",
     "price": 499,
     "image": "spider_plant.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Air purifying", "Low maintenance"],
     "width": 1200,
     "height": 1600
   },
@@ -149,7 +149,7 @@
     "description": "Beautiful Water Lilies floating gracefully on water surfaces.",
     "price": 499,
     "image": "waterlilies.webp",
-    "category": "water plants",
+    "category": ["Water", "Flowering"],
     "width": 816,
     "height": 738
   },
@@ -160,7 +160,7 @@
     "description": "Exquisite White Mussaenda with delicate white bracts and yellow flowers.",
     "price": 499,
     "image": "white_mussaenda.webp",
-    "category": "outdoor",
+    "category": ["Outdoor", "Flowering", "Border/hedge"],
     "width": 1200,
     "height": 1600
   },
@@ -171,7 +171,7 @@
     "description": "Golden Star plant featuring bright star-shaped foliage.",
     "price": 499,
     "image": "goldstar.webp",
-    "category": "indoor",
+    "category": ["Indoor"],
     "width": 3072,
     "height": 4096
   },
@@ -182,7 +182,7 @@
     "description": "Exotic Passion Flower with intricate, colorful blooms and spiritual significance.",
     "price": 499,
     "image": "passion_flower.webp",
-    "category": "outdoor",
+    "category": ["Outdoor", "Flowering"],
     "width": 1200,
     "height": 1600
   },
@@ -193,7 +193,7 @@
     "description": "Vibrant Jaswand (Hibiscus) flower with large, showy blossoms.",
     "price": 499,
     "image": "jaswand.webp",
-    "category": "outdoor",
+    "category": ["Outdoor", "Flowering", "Border/hedge"],
     "width": 1200,
     "height": 1600
   },
@@ -204,7 +204,7 @@
     "description": "Bell-shaped Jaswand variety with unique hanging flowers.",
     "price": 499,
     "image": "ghanti_jaswand.webp",
-    "category": "outdoor",
+    "category": ["Outdoor", "Flowering", "Border/hedge"],
     "width": 1200,
     "height": 1600
   },
@@ -215,7 +215,7 @@
     "description": "Another variety of the exotic Heliconia plant with striking floral bracts.",
     "price": 499,
     "image": "heliconia2.webp",
-    "category": "outdoor",
+    "category": ["Outdoor", "Flowering"],
     "width": 1200,
     "height": 1600
   },
@@ -226,7 +226,7 @@
     "description": "Another variety of Areca Palm with lush, feathery fronds.",
     "price": 499,
     "image": "areca_palm.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Palms", "Air purifying"],
     "width": 1200,
     "height": 1600
   },
@@ -237,7 +237,7 @@
     "description": "Thoughtful birthday gift arrangement featuring plants and flowers.",
     "price": 700,
     "image": "bday_gifts_1.webp",
-    "category": "gifts",
+    "category": ["Gifts"],
     "width": 1600,
     "height": 1200
   },
@@ -248,7 +248,7 @@
     "description": "Collection of plants arranged as bulk gifts for corporate or special occasions.",
     "price": 800,
     "image": "bulkgifts.webp",
-    "category": "gifts",
+    "category": ["Gifts"],
     "width": 864,
     "height": 1026
   },
@@ -259,7 +259,7 @@
     "description": "Another set of bulk gift arrangements perfect for gifting in quantity.",
     "price": 850,
     "image": "bulkgifts2.webp",
-    "category": "gifts",
+    "category": ["Gifts"],
     "width": 1596,
     "height": 828
   },
@@ -270,7 +270,7 @@
     "description": "Attractive plant gift options for various occasions.",
     "price": 499,
     "image": "giftoptions1.webp",
-    "category": "gifts",
+    "category": ["Gifts"],
     "width": 668,
     "height": 1054
   },
@@ -281,7 +281,7 @@
     "description": "More delightful plant gift choices for different recipients.",
     "price": 499,
     "image": "giftoptions2.webp",
-    "category": "gifts",
+    "category": ["Gifts"],
     "width": 880,
     "height": 874
   },
@@ -292,7 +292,7 @@
     "description": "corporate gifts.",
     "price": 499,
     "image": "gifts3.webp",
-    "category": "gifts",
+    "category": ["Gifts"],
     "width": 1200,
     "height": 1600
   },
@@ -303,7 +303,7 @@
     "description": "Beautiful landscape design featuring various plants and flowers.",
     "price": 300,
     "image": "landscaping1.webp",
-    "category": "landscaping",
+    "category": ["Landscaping"],
     "width": 970,
     "height": 1280
   },
@@ -314,7 +314,7 @@
     "description": "Another stunning landscape arrangement for gardens or yards.",
     "price": 350,
     "image": "landscaping2.webp",
-    "category": "landscaping",
+    "category": ["Landscaping"],
     "width": 1600,
     "height": 1200
   },
@@ -325,7 +325,7 @@
     "description": "Creative landscape composition with diverse plant varieties.",
     "price": 400,
     "image": "landscaping3.webp",
-    "category": "landscaping",
+    "category": ["Landscaping"],
     "width": 1200,
     "height": 1600
   },
@@ -336,7 +336,7 @@
     "description": "Elegant landscape design incorporating natural elements.",
     "price": 450,
     "image": "landscaping4.webp",
-    "category": "landscaping",
+    "category": ["Landscaping"],
     "width": 1440,
     "height": 1440
   },
@@ -347,7 +347,7 @@
     "description": "Final landscape option showcasing harmonious plant combinations.",
     "price": 500,
     "image": "landscaping5.webp",
-    "category": "landscaping",
+    "category": ["Landscaping"],
     "width": 1440,
     "height": 1440
   },
@@ -358,20 +358,20 @@
     "description": "Stately Fan Palm with large, fan-shaped leaves for tropical appeal.",
     "price": 400,
     "image": "fanpalm.webp",
-    "category": "outdoor",
+    "category": ["Outdoor", "Palms"],
     "width": 3072,
     "height": 4096
   },
   {
     "id": 34,
-    "name": "Heliconia 2",
-    "with-pot": false,
-    "description": "Additional variety of the tropical Heliconia plant.",
-    "price": 499,
-    "image": "heliconia2.webp",
-    "category": "outdoor",
-    "width": 1200,
-    "height": 1600
+    "name": "Fiddle-leaf ",
+    "with-pot": true,
+    "description": "Ficus Lyrata, also known as Fiddle Leaf Fig, with large, glossy leaves.",
+    "price": 800,
+    "image": "fiddle-leaf.webp",
+    "category": ["Indoor", "Air purifying"],
+    "width": 554,
+    "height": 554
   },
   {
     "id": 35,
@@ -380,7 +380,7 @@
     "description": "Petra Croton variety with bold, colorful foliage patterns.",
     "price": 650,
     "image": "petra_croton.webp",
-    "category": "indoor",
+    "category": ["Indoor"],
     "width": 3072,
     "height": 4096
   },
@@ -391,7 +391,7 @@
     "description": "Vibrant Croton plant with multicolored, leathery leaves.",
     "price": 950,
     "image": "croton.webp",
-    "category": "indoor",
+    "category": ["Indoor"],
     "width": 3072,
     "height": 4096
   },
@@ -402,7 +402,7 @@
     "description": "Charming Dwarf Umbrella plant with small, umbrella-like leaves.",
     "price": 300,
     "image": "dwarfumbrella.webp",
-    "category": "indoor",
+    "category": ["Indoor"],
     "width": 3072,
     "height": 4096
   },
@@ -413,7 +413,7 @@
     "description": "A beautiful and easy-to-care-for Aglaonema plant, known for its striking variegated leaves.",
     "price": 450,
     "image": "agalonema.webp",
-    "category": "indoor",
+    "category": ["Indoor", "Air purifying", "Low maintenance"],
     "width": 3072,
     "height": 4096
   }

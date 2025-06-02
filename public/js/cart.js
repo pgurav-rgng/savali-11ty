@@ -119,21 +119,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let isPlacingOrder = false;
-checkoutBtn.addEventListener("click", async function () {
-  if (cart.length === 0) {
-    alert("Your cart is empty!");
-    return;
-  }
-  if (!isPlacingOrder) {
-    customerDetailsSection.classList.remove("hidden");
-    checkoutBtn.textContent = "Place Order";
-    isPlacingOrder = true;
-  } else {
-    checkoutBtn.disabled = true;
-    checkoutBtn.textContent = "Placing Order...";
-    await processCheckout();
-  }
-});
+if (checkoutBtn) {
+  checkoutBtn.addEventListener("click", async function () {
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+    if (!isPlacingOrder) {
+      customerDetailsSection.classList.remove("hidden");
+      checkoutBtn.textContent = "Place Order";
+      isPlacingOrder = true;
+    } else {
+      checkoutBtn.disabled = true;
+      checkoutBtn.textContent = "Placing Order...";
+      await processCheckout();
+    }
+  });
+}
 
 // Ensure processCheckout() validates inputs
 async function processCheckout() {
