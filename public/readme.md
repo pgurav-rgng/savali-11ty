@@ -1,3 +1,6 @@
+npx @11ty/eleventy --serve
+rm -rf dist && npx @11ty/eleventy --serve
+
 Bash1:  npm run dev
 Bash2:  netlify dev
 

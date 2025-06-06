@@ -6,10 +6,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("public/jpgcompressed");
   eleventyConfig.addPassthroughCopy("public/images");
   eleventyConfig.addPassthroughCopy("public/videos");
-  eleventyConfig.addPassthroughCopy("public/videos.json");
-  eleventyConfig.addPassthroughCopy("public/products.json");
-  eleventyConfig.addPassthroughCopy("public/_data/products.json");
   eleventyConfig.addPassthroughCopy("public/_data/videos.json");
+  eleventyConfig.addPassthroughCopy("public/_data/products.json");
   eleventyConfig.addPassthroughCopy("public/output.css");
   eleventyConfig.addPassthroughCopy("public/cart.html");
   eleventyConfig.addPassthroughCopy("public/chatbot.html");

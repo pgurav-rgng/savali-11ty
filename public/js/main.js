@@ -15,10 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCategory("Flowering", productsData);
   createCategoryButtons(productsData, "Flowering");
   
-  
-  const productListing = document.getElementById('product-listing');
-  
-
   // 4. Connect category buttons
   document.querySelectorAll('.category-btn').forEach(btn => {
     btn.addEventListener('click', () => {
