@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Gift Options 1",
+    "filename": "giftoption1.mp4",
+    "thumbnail": "videos/giftoption1-thumbnail.jpg",
+    "description": "Explore our premium gift collection for special occasions."
+  },
+  {
+    "id": 2,
+    "title": "Gift Options 2",
+    "filename": "giftoption2.mp4",
+    "thumbnail": "videos/giftoption2-thumbnail.jpg",
+    "description": "More beautiful gift options for your loved ones."
+  },
+  {
+    "id": 3,
+    "title": "Lotus Collection",
+    "filename": "lotus1.mp4",
+    "thumbnail": "videos/lotus-thumbnail.jpg",
+    "description": "Discover our stunning water plants and lotus varieties."
+  }
+]

@@ -76,17 +76,9 @@
   <body>
     <div id="chat-container">
       <div id="chat-box">
-        <div class="message bot-message">
-          <strong>Sample Question:</strong> How frequently should the plants be
-          watered?<br /><br />
-          <strong>Answer:</strong> The frequency of watering plants can vary
-          depending on factors such as the type of plant, the size of the pot,
-          the temperature, and the humidity levels. A general guideline is to
-          water when the top inch of soil feels dry to the touch. It's best to
-          water thoroughly and allow excess water to drain out of the pot to
-          prevent waterlogging. It's important to avoid overwatering, as this
-          can lead to root rot. Observing your plants regularly will help you
-          determine their specific watering needs.
+        <div class="message bot-message" id="sample-question-block">
+          <strong>Sample Question:</strong> How frequently should the plants be watered?<br /><br />
+          <strong>Answer:</strong> The frequency of watering plants can vary depending on factors such as the type of plant, the size of the pot, the temperature, and the humidity levels. A general guideline is to water when the top inch of soil feels dry to the touch. It's best to water thoroughly and allow excess water to drain out of the pot to prevent waterlogging. It's important to avoid overwatering, as this can lead to root rot. Observing your plants regularly will help you determine their specific watering needs.
         </div>
       </div>
       <div id="input-container">
@@ -131,8 +123,13 @@
         messages.push({ role: "user", content: message });
 
         try {
-          // Call Netlify Function instead of OpenAI directly
-          const response = await fetch("/.netlify/functions/chat", {
+          const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+          const functionUrl = isLocalhost
+            ? `${window.location.protocol}//${window.location.hostname}:8888/.netlify/functions/chat`
+            : "/.netlify/functions/chat";
+
+          const response = await fetch(functionUrl, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -178,7 +175,7 @@
       }
       // Event Listeners
       userInput.addEventListener("focus", () => {
-        document.getElementById("Sample Question").style.display = "none";
+        document.getElementById("sample-question-block").style.display = "none";
       });
       sendButton.addEventListener("click", sendMessage);
       userInput.addEventListener("keypress", (event) => {
@@ -187,5 +184,6 @@
         }
       });
     </script>
+    <script src="js/chat.js"></script>
   </body>
 </html>

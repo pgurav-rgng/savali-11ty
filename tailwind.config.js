@@ -1,12 +1,12 @@
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./public/**/*.html", // All HTML files
-    "./public/js/**/*.js", // Specifically include JS files
-    "./public/*.html", // Root HTML files
+    "./src/**/*.{html,js,njk,md}", // Adjust this path to include all your Eleventy templates
+    "./public/**/*.{html,js,njk,md}", // If Eleventy processes files in public
   ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [], // This array should be empty if you're not using official Tailwind plugins
 };

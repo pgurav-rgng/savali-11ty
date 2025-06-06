@@ -1,6 +1,8 @@
+---
+title: Plant Store
+---
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,6 +93,15 @@
                 opacity: 1;
                 transform: translateY(0) translateX(-50%);
             }
+            .category-btn {
+                @apply bg-white border border-green-400 text-green-700 hover:bg-green-50 px-4 py-2 rounded-full font-medium transition-colors duration-200;
+            }
+            .category-btn.active {
+                @apply bg-primary-500 text-white border-primary-600 hover:bg-primary-600; /* Added hover state */
+            }
+            .category-btn.active:hover {
+                @apply shadow-md transform scale-105;
+            }
 
         }
     </style>
@@ -143,34 +154,54 @@
             </button>
         </div>
     </header>
-
-    <section class="relative bg-green-700 text-white">
+    <section class="relative bg-cover bg-center text-white" style="background-image: url('/images/savali-nursery.jpg');">
         <div class="absolute inset-0 bg-black opacity-40"></div>
         <div class="container mx-auto px-4 py-24 relative z-10 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">Shop Plants - Send Gifts <br><br> Pots &amp;
-                Fertilizers <br><br> In Kolhapur <br></h1>
-            <p class="text-xl md:text-2xl mb-8 text-shadow">Your one-stop shop for beautiful plants in Kolhapur. <br>
-                <br>We accept orders over phone call.
-            </p>
-            <a href="#plants"
-                class="inline-block bg-primary-500 hover:bg-primary-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                Browse Plants
-            </a>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">
+                Shop Plants - Send Gifts <br><br> Pots &amp; Fertilizers <br> In Kolhapur <br>
+            </h1>
         </div>
     </section>
     <section id="plants" class="py-12 bg-green-50">
-        <div class="mb-8 bg-green-100 rounded-lg border border-green-300 max-w-screen-xl mx-auto" id="categories-wrapper">
-            <h3 class="text-lg font-semibold text-green-800 mb-4 text-center" id="categories-title"> Select Plant Category</h3>
-            <div id="category-container" class="flex flex-wrap justify-center gap-3">
-                <!-- Buttons will be injected via JavaScript -->
+    <!-- Category Button Section -->
+    <div class="mb-8 bg-green-100 rounded-lg border border-green-300 max-w-screen-xl mx-auto" id="categories-wrapper">
+        <h3 class="text-lg font-semibold text-green-800 mb-4 text-center" id="categories-title">
+        Select Plant Category
+        </h3>
+            {% set categories = [
+            "Indoor",
+            "Outdoor",
+            "Flowering",
+            "Succulents",
+            "Air Purifying",
+            "Palms",
+            "Spices",
+            "Hanging",
+            "Fruit Plants",
+            "Pots",
+            "Gifts",
+            "Landscaping",
+            "Fertilizers"
+            ] %}
+            <div id="categories-wrapper" class="mb-8 bg-green-100 rounded-lg border border-green-300 max-w-screen-xl mx-auto p-4 px-4 sm:px-4 lg:px-6">
+            <div id="category-container" class="flex flex-wrap justify-center gap-3 px-2">
+                {% for cat in categories %}
+                <button class="category-btn bg-white border border-green-400 text-green-700 hover:bg-green-50 px-4 py-2 rounded-full font-medium transition-colors duration-200"
+                        data-category="{{ cat | lower | replace(' ', '-') }}">
+                    {{ cat }}
+                </button>
+                {% endfor %}
             </div>
-        </div>
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Featured Plants</h2>
-            <div id="product-listing" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
             </div>
+
+<div id="product-listing"></div>
+    <!-- Product Listing Section -->
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         </div>
+    </div>
     </section>
+
     <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
@@ -252,28 +283,25 @@
             <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
                 Take a virtual tour of our nursery and see our beautiful plants in their natural environment.
             </p>
-            <div id="video-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Videos will be loaded here dynamically -->
+            <!-- Nursery Tour Videos Section -->
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 sm:px-6 lg:px-8">
+            {% for video in videos %}
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="relative pb-[56.25%] h-0 overflow-hidden">
+                    <video class="absolute top-0 left-0 w-full h-full" controls poster="{{ video.thumbnail }}" loading="lazy">
+                    <source src="videos/{{ video.filename }}" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ video.title }}</h3>
+                    <p class="text-gray-600">{{ video.description }}</p>
+                </div>
+                </div>
+            {% endfor %}
             </div>
-        </div>
-    </section>
-    <section class="py-16 bg-primary-700 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">Ready to Greenify Your Space?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Visit us today or browse our collection online.</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#"
-                    class="bg-white text-primary-700 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition duration-300">
-                    Shop Now
-                </a>
-                <a href="#"
-                    class="bg-transparent border-2 border-white hover:bg-white hover:text-primary-700 font-bold py-3 px-6 rounded-lg transition duration-300">
-                    Contact Us
-                </a>
-            </div>
-        </div>
-    </section>
 
+        </div>
+    </section>
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -349,6 +377,18 @@
             class="hidden absolute bottom-full right-0 w-[calc(100vw-3rem)] sm:w-80 h-96 bg-white rounded-lg shadow-xl border border-green-200 overflow-hidden">
             <iframe src="chatbot.html" class="w-full h-full border-0"></iframe>
         </div>
+        </div>
+        <!-- Floating Chat Widget (existing) -->
+        <div class="fixed bottom-6 right-6 z-50">...</div>
+        <div id="cart-toast"
+            class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg shadow-lg text-sm z-50 hidden">
+            Item added to cart!
+        </div>
+
+    <div id="products-data" style="display:none;">
+    <script type="application/json">
+        {{ products | json | safe }}
+    </script>
     </div>
 
     <script>
@@ -356,16 +396,35 @@
             document.getElementById('chat-window').classList.toggle('hidden');
         });
     </script>
-    <script src="js/cart.js"></script>
-    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        // 1. Get all category buttons
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        
+        // 2. Function to highlight a category and filter products
+        function setActiveCategory(category) {
+            // Update button states
+            categoryButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.textContent.trim() === category);
+            });
+            
+            // Here you would add your product filtering logic
+            console.log('Active category:', category);
+            // You'll need to implement the actual product filtering
+        }
 
-    <!-- Floating Chat Widget (existing) -->
-    <div class="fixed bottom-6 right-6 z-50">...</div>
+        // 3. Set "Flowering" as default active category
+        setActiveCategory('Flowering');
 
-    <div id="cart-toast"
-        class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg shadow-lg text-sm z-50 hidden">
-        Item added to cart!
-    </div>
+        // 4. Add click handlers to all category buttons
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                setActiveCategory(btn.textContent.trim());
+            });
+        });
+        });
+    </script>
+    <script src="/js/main.js"></script>
+    <script src="/js/cart.js"></script>
 </body>
-
 </html>

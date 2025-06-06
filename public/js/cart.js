@@ -179,12 +179,22 @@ async function processCheckout() {
   };
 
   try {
+    const isLocalhost =
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1";
+
+    const functionUrl = isLocalhost
+      ? `${window.location.protocol}//${window.location.hostname}:8888/.netlify/functions/process-order`
+      : "/.netlify/functions/process-order";
+
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
 
-    const response = await fetch("/.netlify/functions/process-order", {
+    const response = await fetch(functionUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(orderData),
       signal: controller.signal,
     });
