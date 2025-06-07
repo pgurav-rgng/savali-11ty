@@ -1,11 +1,16 @@
 npx @11ty/eleventy --serve
 rm -rf dist && npx @11ty/eleventy --serve
+npx tailwindcss -i public/input.css -o public/output.css --minify
+netlify build
 
 Bash1:  npm run dev
 Bash2:  netlify dev
 
 build process:
 npx tailwindcss -i public/input.css -o public/output.css --watch
+
+git add . && git commit -m "Fix missing dependencies" && git push origin main
+
 1.  npx eleventy
 2.  npx eleventy --serve
 3.  netlify dev

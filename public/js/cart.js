@@ -2,8 +2,8 @@ const cartContainer = document.getElementById("cart-items");
 const totalDisplay = document.getElementById("total-price");
 const cartItemCountDisplay = document.getElementById("cart-item-count");
 const checkoutBtn = document.getElementById("checkout-btn");
+const desktopCartIcon = document.querySelector(".desktop-cart-icon"); // Add this if you have one
 const customerDetailsSection = document.getElementById("customer-details");
-
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 updateCartIconCount();
@@ -36,8 +36,11 @@ function updateCartDisplay() {
       "flex flex-col sm:flex-row items-center bg-white p-4 rounded-xl shadow-lg mb-6 transition-all duration-300 ease-in-out hover:shadow-xl relative";
 
     itemDiv.innerHTML = `
-      <div class="flex items-start">
-        <div class="w-48 h-48 sm:w-32 sm:h-32 flex-shrink-0 mr-0 sm:mr-6 mb-4 sm:mb-0 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
+      <div class="flex flex-col items-center sm:items-start w-full sm:w-auto mr-0 sm:mr-6 mb-4 sm:mb-0">
+        <div class="text-2xl sm:text-3xl font-extrabold text-primary-800 mb-2 text-center">${
+          item.name
+        }</div>
+        <div class="w-48 h-48 sm:w-32 sm:h-32 rounded-lg overflow-hidden bg-gray-50 flex items-center justify-center">
           <img 
             src="images/${item.image}" 
             alt="${item.name}" 
@@ -46,12 +49,7 @@ function updateCartDisplay() {
             class="max-w-full max-h-full object-contain"
           >
         </div>
-      </div>
-      <div class="flex-grow text-center sm:text-left ml-0 sm:ml-4">
-        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-1">${
-          item.name
-        }</h3>
-        <p class="text-primary-700 text-lg font-bold">₹<span class="product-unit-price">${itemPrice.toFixed(
+        <p class="text-primary-700 text-lg font-bold mt-3 text-center">₹<span class="product-unit-price">${itemPrice.toFixed(
           2
         )}</span> ${item["with-pot"] ? "(With Pot)" : "(Without Pot)"}</p>
       </div>
@@ -127,6 +125,7 @@ if (checkoutBtn) {
     }
     if (!isPlacingOrder) {
       customerDetailsSection.classList.remove("hidden");
+      document.getElementById("mobile-cart-icon")?.classList.add("hidden");
       checkoutBtn.textContent = "Place Order";
       isPlacingOrder = true;
     } else {
@@ -162,8 +161,9 @@ async function processCheckout() {
     return;
   }
 
+  // In cart.js, modify the orderData object in the processCheckout function (around line 180)
   const orderData = {
-    customer: { name, phone, address },
+    customer: { name, phone, address, formattedPhone: phone }, // Add formattedPhone here
     items: cart.map((item) => ({
       name: item.name,
       id: item.id,
@@ -213,7 +213,24 @@ async function processCheckout() {
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartDisplay();
     window.location.href = "thank-you.html";
+    // In cart.js, replace the catch block in processCheckout (around line 220) with:
   } catch (error) {
+    console.error("Checkout error:", error);
+
+    try {
+      const errorData = JSON.parse(error.message.replace("Server error: ", ""));
+      if (errorData.partial_success) {
+        // Partial success - messages might still be delivered
+        cart = [];
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
+        window.location.href = "thank-you.html";
+        return;
+      }
+    } catch (e) {
+      // Not a partial success error
+    }
+
     showToast("Order failed. Please try again.");
 
     // Reset button state
@@ -222,7 +239,6 @@ async function processCheckout() {
     isPlacingOrder = true;
   }
 }
-
 
 function showToast(message) {
   const toast = document.createElement("div");
@@ -235,4 +251,3 @@ function showToast(message) {
     toast.remove();
   }, 3000);
 }
-
